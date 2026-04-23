@@ -34,8 +34,8 @@ namespace BulkyWeb
 
             builder.Services.AddAuthentication().AddFacebook(options =>
             {
-                options.AppId = "998428106042891";
-                options.AppSecret = "d1031cbb860790cf327c5d48b95a156a";
+                options.AppId = "Add yours";
+                options.AppSecret = "Add yours";
             });
 
             builder.Services.AddDistributedMemoryCache();

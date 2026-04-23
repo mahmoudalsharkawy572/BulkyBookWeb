@@ -1,4 +1,4 @@
-.divider-text:before,
+﻿.divider-text:before,
 .divider-text:after{
     color : white;
     content :"";
@@ -32,3 +32,4 @@ html {
 body {
   margin-bottom: 60px;
 }
+

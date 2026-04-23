@@ -2,17 +2,10 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 #nullable disable
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Text.Encodings.Web;
-using System.Threading;
-using System.Threading.Tasks;
 using Bulky.DataAccess.Repository.IRepository;
 using Bulky.Models;
 using Bulky.Utility;
+using Demo.Presentation.Utilities;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -22,6 +15,14 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Text.Encodings.Web;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace BulkyWeb.Areas.Identity.Pages.Account
 {
@@ -110,7 +111,7 @@ namespace BulkyWeb.Areas.Identity.Pages.Account
 
             [Required]
 
-            public string Role { get; set; } 
+            public string Role { get; set; } = SD.Role_Customer;
             public IEnumerable<SelectListItem> RoleList { get; set; }
             public string Name { get; set; }
             public string? StreetAddress { get; set; }
@@ -190,6 +191,14 @@ namespace BulkyWeb.Areas.Identity.Pages.Account
                     await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
+                    var email = new Email()
+                    {
+                        To = user.Email,
+                        Subject = "Welcome to Our Service",
+                        Body = $"Feel Free to cantact us if there is any issue"
+                    };
+                    EmailSettings.SendEmail(email);
+
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
                         return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
@@ -202,6 +211,7 @@ namespace BulkyWeb.Areas.Identity.Pages.Account
                             await _signInManager.SignInAsync(user, isPersistent: false);
                         return LocalRedirect(returnUrl);
                     }
+                   
                 }
                 foreach (var error in result.Errors)
                 {

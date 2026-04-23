@@ -39,8 +39,8 @@ The project is built using ASP.NET Core MVC with Entity Framework Core and SQL S
 ## 🛠️ Technology Stack
 
 ### Backend
-- **Framework**: ASP.NET Core 9.0 MVC
-- **Database**: SQL Server with Entity Framework Core 9.0
+- **Framework**: ASP.NET Core 8.0 MVC
+- **Database**: SQL Server with Entity Framework Core 8.0
 - **Authentication**: ASP.NET Core Identity
 - **Architecture**: N-tier architecture with Repository and Unit of Work patterns
 
@@ -96,7 +96,7 @@ BookHub-MVC/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/MahmoudAbdelrahman2002/BookHub-MVC.git
+   git clone https://github.com/mahmoudalsharkawy572/BulkyBookWeb.git
    cd BookHub-MVC
    ```
 
@@ -111,7 +111,7 @@ BookHub-MVC/
    ```json
    {
      "ConnectionStrings": {
-       "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=BookHubDB;Trusted_Connection=True;MultipleActiveResultSets=true"
+       "DefaultConnection": "Server=.;Database=BulkyDb;Trusted_Connection=True;TrustServerCertificate=True"
      }
    }
    ```

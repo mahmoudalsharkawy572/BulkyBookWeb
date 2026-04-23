@@ -1,0 +1,68 @@
+﻿@model List<ApplicationUser>
+
+<div class="card shadow border-0 my-4">
+    <div class="card-header bg-secondary bg-gradient ml-0 py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2">User List</h2>
+            </div>
+        </div>
+    </div>
+    <div class="card-body p-4">
+        <div class="row pb-3">
+            <div class="col-6">
+            </div>
+        </div>
+
+        <table class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Role</th>
+                    <th>Company</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.Email</td>
+                        <td>@item.PhoneNumber</td>
+                        <td>@item.Role</td>
+                        <td>@item.Company?.Name</td>
+                        <td class="text-center">
+                            @if (item.LockoutEnd != null && item.LockoutEnd > DateTime.Now)
+                            {
+                                <form asp-area="Admin" asp-controller="User" asp-action="LockUnlock" method="post" style="display:inline;">
+                                    <input type="hidden" name="id" value="@item.Id" />
+                                    <button type="submit" class="btn btn-sm btn-success">
+                                        <i class="bi bi-unlock"></i> Unlock
+                                    </button>
+                                </form>
+
+                            }
+                            else
+                            {
+                                <form asp-area="Admin" asp-controller="User" asp-action="LockUnlock" method="post" style="display:inline;">
+                                    <input type="hidden" name="id" value="@item.Id" />
+                                    <button type="submit" class="btn btn-sm btn-danger">
+                                        <i class="bi bi-unlock"></i> Lock
+                                    </button>
+                                </form>
+							}
+                            <a asp-area="Admin" asp-controller="User" asp-action="RoleManagment" asp-route-id="@item.Id" class="btn btn-sm btn-secondary">
+                                <i class="bi bi-pencil-square"></i> Edit
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+    </div>
+</div>
+

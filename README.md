@@ -1,16 +1,18 @@
-# BookHub-MVC 📚
+# BulkyBookWeb-MVC 📚
 
-A comprehensive e-commerce web application for book management and sales, built with ASP.NET Core MVC and modern web technologies.
+A full-stack e-commerce web application for browsing, purchasing, and managing books through a user-friendly interface.
+It supports authentication, role-based access, and an admin dashboard, built using Layer architecture for scalability and maintainability.
 
 ## 🌟 Overview
 
-BookHub-MVC is a full-featured online bookstore that provides a complete e-commerce solution for book retailers. The application supports multiple user roles, shopping cart functionality, order management, and secure payment processing through Stripe integration.
+The E-commerce Book Store enables users to explore a wide range of books by categories, view detailed information, and add items to a shopping cart for seamless checkout. Users can register, log in, and track their orders, while administrators have full control over managing books, categories, users, and orders.
 
+The project is built using ASP.NET Core MVC with Entity Framework Core and SQL Server, following clean architecture principles along with Repository and Unit of Work patterns to ensure organized, maintainable, and scalable code.
 
 
 ## ✨ Features
 
-### 🛍️ Customer Features
+### 🛍️ Customer 
 - **Browse Books**: View all available books with detailed information
 - **Category Filtering**: Browse books by categories
 - **Product Details**: Detailed book information including descriptions, pricing, and images
@@ -20,7 +22,7 @@ BookHub-MVC is a full-featured online bookstore that provides a complete e-comme
 - **Social Login**: Facebook authentication integration
 - **Profile Management**: Manage personal information and account settings
 
-### 👨‍💼 Admin Features
+### 👨‍💼 Admin 
 - **Product Management**: Add, edit, and delete books from the catalog
 - **Category Management**: Organize books into categories
 - **User Management**: Manage customer accounts and roles
@@ -85,7 +87,7 @@ BookHub-MVC/
 ## 🚀 Getting Started
 
 ### Prerequisites
-- **.NET 9.0 SDK** or later
+- **.NET 8.0 SDK** or later
 - **SQL Server** (LocalDB or full SQL Server)
 - **Visual Studio 2022** or **Visual Studio Code** (recommended)
 - **Git** for version control
@@ -149,30 +151,14 @@ BookHub-MVC/
 
 8. **Access the application**
    
-   Open your browser and navigate to `https://localhost:5001` or `http://localhost:5000`
+   Open your browser and navigate to `https://localhost:---- 
 
 ### 🔑 Default Admin Account
 
 The application will automatically create a default admin account on first run:
-- **Email**: admin@bulky.com
-- **Password**: Admin@123
+- **Email**: Admin@gmail.com
+- **Password**: Admin123*
 - **Role**: Administrator
-
-## 📝 Usage
-
-### For Customers
-1. **Browse Books**: Visit the home page to see all available books
-2. **Register Account**: Create a new account or login with existing credentials
-3. **Add to Cart**: Click on book details and add to your shopping cart
-4. **Checkout**: Proceed to checkout and complete payment via Stripe
-5. **Order History**: View your past orders in your account
-
-### For Administrators
-1. **Login**: Use admin credentials to access the admin panel
-2. **Manage Products**: Add new books, edit existing ones, or remove discontinued items
-3. **Manage Categories**: Organize books into logical categories
-4. **User Management**: View and manage customer accounts
-5. **Order Processing**: Monitor and process customer orders
 
 ## 🔧 Configuration
 
@@ -206,37 +192,16 @@ The application follows a clean, layered architecture:
 - **Dependency Injection**: For loose coupling and testability
 - **Model-View-Controller**: For separation of concerns
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License. See the `LICENSE` file for details.
-
 ## 👨‍💻 Developer
 
-**Mahmoud Abdelrahman**
-- GitHub: [@MahmoudAbdelrahman2002](https://github.com/MahmoudAbdelrahman2002)
+**Mahmoud Alsharkawy**
+- GitHub: [@mahmoudalsharkawy572](https://github.com/mahmoudalsharkawy572)
 
 ## 🙏 Acknowledgments
 
-- Built with ❤️ using ASP.NET Core
+- Built using ASP.NET Core
 - UI components powered by Bootstrap
 - Payment processing by Stripe
 - Icons provided by Bootstrap Icons
-
-## 📞 Support
-
-If you encounter any issues or have questions, please:
-1. Check the existing [issues](https://github.com/MahmoudAbdelrahman2002/BookHub-MVC/issues)
-2. Create a new issue if your problem isn't already reported
-3. Provide detailed information about the problem and your environment
-
----
 
 **Happy coding! 🚀**

@@ -1,383 +1,242 @@
-# Bulky Book Web
+# BookHub-MVC 📚
 
-A comprehensive full-stack e-commerce platform for selling books, built with ASP.NET Core and modern web technologies.
+A comprehensive e-commerce web application for book management and sales, built with ASP.NET Core MVC and modern web technologies.
 
-## Overview
+## 🌟 Overview
 
-Bulky Book Web is a multi-tenant e-commerce application that enables businesses to manage product catalogs, process orders, handle payments, and manage users. The platform supports both individual customers and corporate accounts with role-based access control.
+BookHub-MVC is a full-featured online bookstore that provides a complete e-commerce solution for book retailers. The application supports multiple user roles, shopping cart functionality, order management, and secure payment processing through Stripe integration.
 
-## Features
 
-### Customer Features
-- **Product Browsing** - Browse and search for books with detailed product information
-- **Shopping Cart** - Add/remove items, view cart summary, and manage quantities
-- **Secure Checkout** - Integrated Stripe payment processing for secure transactions
-- **Order Management** - View order history and track order status
-- **Account Management** - User profile, password management, and personal data management
-- **Two-Factor Authentication** - Enhanced security with 2FA support
-- **Social Authentication** - Login via Facebook for convenience
 
-### Admin Features
-- **Product Management** - Create, edit, and delete products with image uploads
-- **Category Management** - Organize products into categories
-- **Company/Tenant Management** - Manage multiple companies or business units
-- **Order Management** - View, process, and fulfill customer orders
-- **Payment Management** - Track payments and payment status
-- **User Management** - Manage users and assign roles/permissions
-- **Role-Based Access Control** - Fine-grained permission management
+## ✨ Features
 
-### General Features
-- **Email Notifications** - Order confirmations and status updates via email
-- **Session Management** - Secure session handling with 100-minute timeout
-- **HTTPS Security** - All connections secured with SSL/TLS
-- **HSTS Protection** - Protection against man-in-the-middle attacks
-- **Data Seeding** - Automatic database initialization with sample data
+### 🛍️ Customer Features
+- **Browse Books**: View all available books with detailed information
+- **Category Filtering**: Browse books by categories
+- **Product Details**: Detailed book information including descriptions, pricing, and images
+- **Shopping Cart**: Add/remove books from cart with quantity management
+- **Order Management**: Place orders and track order history
+- **User Authentication**: Secure registration and login with email confirmation
+- **Social Login**: Facebook authentication integration
+- **Profile Management**: Manage personal information and account settings
 
-## Technology Stack
+### 👨‍💼 Admin Features
+- **Product Management**: Add, edit, and delete books from the catalog
+- **Category Management**: Organize books into categories
+- **User Management**: Manage customer accounts and roles
+- **Company Management**: Manage business customer accounts
+- **Order Processing**: View and manage all customer orders
+- **Role-based Access Control**: Secure admin panel with different permission levels
+
+### 💳 Payment & Security
+- **Stripe Integration**: Secure payment processing
+- **Multiple User Roles**: Admin, Employee, Customer, and Company users
+- **Email Confirmation**: Account verification system
+- **Secure Authentication**: ASP.NET Core Identity integration
+
+## 🛠️ Technology Stack
 
 ### Backend
-- **.NET 8** - Latest LTS framework for high performance
-- **ASP.NET Core** - Web framework with MVC and Razor Pages
-- **Entity Framework Core** - ORM for database operations
-- **SQL Server** - Relational database
+- **Framework**: ASP.NET Core 9.0 MVC
+- **Database**: SQL Server with Entity Framework Core 9.0
+- **Authentication**: ASP.NET Core Identity
+- **Architecture**: N-tier architecture with Repository and Unit of Work patterns
 
 ### Frontend
-- **Razor Pages & Views** - Server-side rendering with C#
-- **Bootstrap** - Responsive UI framework
-- **jQuery & jQuery Validation** - Client-side interactivity and validation
+- **UI Framework**: Bootstrap 5
+- **Icons**: Bootstrap Icons
+- **JavaScript**: jQuery
+- **Styling**: CSS3 with custom styles
 
-### Services & APIs
-- **Stripe** - Payment processing and checkout sessions
-- **Facebook Authentication** - Social login integration
-- **ASP.NET Identity** - User authentication and authorization
+### External Services
+- **Payment**: Stripe API
+- **Social Auth**: Facebook Login
+- **Email**: Email confirmation system
 
-### Architecture
-- **Repository Pattern** - Data access abstraction layer
-- **Unit of Work Pattern** - Coordinated data persistence
-- **Dependency Injection** - Loose coupling and testability
-- **Layered Architecture** - Separation of concerns
+### Development Tools
+- **ORM**: Entity Framework Core
+- **Database Migrations**: Code-First approach
+- **Dependency Injection**: Built-in ASP.NET Core DI container
 
-## Project Structure
+## 📁 Project Structure
 
 ```
-BulkyWeb/
-??? BulkyWeb/                 # Web application (ASP.NET Core)
-?   ??? Areas/
-?   ?   ??? Admin/           # Admin section (controllers, views)
-?   ?   ??? Customer/        # Customer section (controllers, views)
-?   ?   ??? Identity/        # Authentication (Razor Pages)
-?   ??? ViewComponents/      # Reusable UI components
-?   ??? wwwroot/             # Static files (CSS, JS, images)
-?   ??? Program.cs           # Application startup
-?
-??? Bulky.DataAccess/        # Data access layer
-?   ??? Data/                # DbContext and migrations
-?   ??? Repository/          # Repository implementations
-?   ??? DBInitializer/       # Database seeding
-?
-??? Bulky.Models/            # Domain models and entities
-?
-??? Bulky.Utility/           # Shared utilities and helpers
-    ??? StripeSettings.cs    # Configuration models
+BookHub-MVC/
+├── BulkyWeb/                    # Main web application
+│   ├── Areas/
+│   │   ├── Admin/              # Admin area controllers and views
+│   │   ├── Customer/           # Customer area controllers and views
+│   │   └── Identity/           # Identity pages
+│   ├── Views/                  # Shared views and layouts
+│   ├── wwwroot/               # Static files (CSS, JS, images)
+│   └── Program.cs             # Application startup configuration
+├── Bulky.DataAccess/          # Data access layer
+│   ├── Data/                  # DbContext and database configuration
+│   ├── Migrations/            # Entity Framework migrations
+│   ├── Repository/            # Repository pattern implementation
+│   └── DbInitializer/         # Database seeding and initialization
+├── Bulky.Models/              # Domain models and DTOs
+│   ├── Models/                # Entity models
+│   └── ViewModels/            # View models for UI
+├── Bulky.Utility/             # Utility classes and constants
+└── Bulky.sln                  # Solution file
 ```
 
-## Prerequisites
+## 🚀 Getting Started
 
-- **.NET 8 SDK** or later
-- **SQL Server** (local or remote instance)
-- **Visual Studio 2022** (recommended) or VS Code
-- **Stripe Account** - For payment processing (create at [stripe.com](https://stripe.com))
-- **Facebook Developer Account** (optional) - For social authentication
+### Prerequisites
+- **.NET 9.0 SDK** or later
+- **SQL Server** (LocalDB or full SQL Server)
+- **Visual Studio 2022** or **Visual Studio Code** (recommended)
+- **Git** for version control
 
-## Getting Started
+### Installation
 
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/mahmoudalsharkawy572/BulkyBookWeb.git
-cd BulkyBookWeb
-```
-
-### 2. Configure the Database
-
-Update the connection string in `BulkyWeb/appsettings.json`:
-
-```json
-{
-  "ConnectionStrings": {
-    "DefaultConnection": "Server=YOUR_SERVER;Database=BulkyDb;Trusted_Connection=True;TrustServerCertificate=True;"
-  }
-}
-```
-
-For local SQL Server with Windows Authentication:
-```
-Server=.;Database=BulkyDb;Trusted_Connection=True;TrustServerCertificate=True;
-```
-
-### 3. Configure Stripe Keys
-
-Add your Stripe test/live keys to `BulkyWeb/appsettings.json`:
-
-```json
-{
-  "Stripe": {
-    "SecretKey": "sk_test_YOUR_SECRET_KEY",
-    "PublishableKey": "pk_test_YOUR_PUBLISHABLE_KEY"
-  }
-}
-```
-
-Get your keys from the [Stripe Dashboard](https://dashboard.stripe.com/apikeys)
-
-### 4. Configure Facebook Authentication (Optional)
-
-In `Program.cs`, update Facebook credentials:
-
-```csharp
-builder.Services.AddAuthentication().AddFacebook(options =>
-{
-    options.AppId = "YOUR_FACEBOOK_APP_ID";
-    options.AppSecret = "YOUR_FACEBOOK_APP_SECRET";
-});
-```
-
-### 5. Apply Database Migrations
-
-```bash
-cd BulkyWeb
-dotnet ef database update
-```
-
-Or via Package Manager Console in Visual Studio:
-```powershell
-Update-Database
-```
-
-### 6. Run the Application
-
-```bash
-dotnet run
-```
-
-The application will start at `https://localhost:7001` (or the configured port).
-
-### 7. Access the Application
-
-- **Customer Area**: `https://localhost:7001/customer`
-- **Admin Area**: `https://localhost:7001/admin`
-- **User Registration**: `https://localhost:7001/identity/account/register`
-
-### Default Test Credentials
-
-After database seeding, test accounts are available. Check the `DBInitializer` class for default credentials.
-
-## Configuration
-
-### appsettings.json
-
-```json
-{
-  "ConnectionStrings": {
-    "DefaultConnection": "Server=...;Database=...;..."
-  },
-  "Stripe": {
-    "SecretKey": "sk_test_...",
-    "PublishableKey": "pk_test_..."
-  }
-}
-```
-
-### appsettings.Development.json
-
-Create environment-specific settings for development:
-
-```json
-{
-  "Logging": {
-    "LogLevel": {
-      "Default": "Debug"
-    }
-  }
-}
-```
-
-## API Endpoints
-
-### Authentication
-- `GET /identity/account/login` - User login
-- `GET /identity/account/register` - User registration
-- `POST /identity/account/logout` - User logout
-
-### Customer
-- `GET /customer/home/index` - Product listing
-- `GET /customer/home/details/{id}` - Product details
-- `GET /customer/cart/index` - Shopping cart
-- `POST /customer/cart/add` - Add to cart
-- `POST /customer/cart/remove` - Remove from cart
-- `GET /customer/cart/confirmation/{id}` - Order confirmation
-
-### Admin
-- `GET /admin/product/index` - Product management
-- `GET /admin/category/index` - Category management
-- `GET /admin/order/index` - Order management
-- `GET /admin/user/index` - User management
-- `GET /admin/company/index` - Company management
-
-## Database Schema
-
-### Key Entities
-
-- **OrderHeader** - Main order information
-- **OrderDetail** - Individual items in an order
-- **Product** - Book/product catalog
-- **Category** - Product categories
-- **ShoppingCart** - User shopping carts
-- **ApplicationUser** - Extended user information
-- **Company** - Business/tenant information
-
-## Security Features
-
-- **HTTPS Enforcement** - All connections secured
-- **HSTS** - HTTP Strict Transport Security (30-day default)
-- **Authentication** - ASP.NET Identity with email confirmation
-- **Authorization** - Role-based access control (RBAC)
-- **Two-Factor Authentication** - Optional 2FA support
-- **CSRF Protection** - Built-in CSRF tokens on forms
-- **Password Security** - Secure password hashing and validation
-
-## Stripe Integration
-
-### Payment Flow
-
-1. User adds items to cart
-2. User proceeds to checkout
-3. Stripe Checkout Session is created
-4. User is redirected to Stripe hosted checkout
-5. Payment is processed
-6. User is redirected to order confirmation page
-7. `OrderConfirmation` action verifies payment status with Stripe
-8. Order is marked as "Approved" upon successful payment
-
-### Session Management
-
-- Stripe Session IDs are stored in `OrderHeader.SessionId`
-- Payment Intent IDs are stored in `OrderHeader.PaymentIntentId`
-- Session verification occurs at `CartController.OrderConfirmation()`
-
-## Email Configuration
-
-Email notifications are sent for:
-- Order confirmations
-- Order status updates
-- Password reset requests
-- Email verification
-
-Configure SMTP settings in `EmailSender` class or appsettings.
-
-## Logging
-
-Application logging is configured in `appsettings.json`:
-
-```json
-{
-  "Logging": {
-    "LogLevel": {
-      "Default": "Information",
-      "Microsoft.AspNetCore": "Warning"
-    }
-  }
-}
-```
-
-## Troubleshooting
-
-### Common Issues
-
-**Database Connection Errors**
-- Verify SQL Server is running
-- Check connection string in `appsettings.json`
-- Ensure database user has proper permissions
-
-**Stripe Errors**
-- Verify API keys are correct in `appsettings.json`
-- Check Stripe dashboard for test/live mode
-- Ensure webhook configuration for production
-
-**Authentication Issues**
-- Clear browser cookies and cache
-- Verify email confirmation link
-- Check `ApplicationDbContext` migrations
-
-**Session Timeout**
-- Adjust timeout in `Program.cs`:
-  ```csharp
-  options.IdleTimeout = TimeSpan.FromMinutes(100);
-  ```
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/amazing-feature`
-3. Commit your changes: `git commit -m 'Add amazing feature'`
-4. Push to the branch: `git push origin feature/amazing-feature`
-5. Open a Pull Request
-
-## Deployment
-
-### Azure Deployment
-
-1. Create an Azure App Service
-2. Create an Azure SQL Database
-3. Configure connection strings in Azure portal
-4. Deploy using Visual Studio or Azure CLI:
+1. **Clone the repository**
    ```bash
-   dotnet publish -c Release
-   az webapp deployment source config-zip -r <zipfile> -n <app-name> -g <resource-group>
+   git clone https://github.com/MahmoudAbdelrahman2002/BookHub-MVC.git
+   cd BookHub-MVC
    ```
 
-### Local IIS Deployment
+2. **Restore NuGet packages**
+   ```bash
+   dotnet restore
+   ```
 
-1. Publish the application: `dotnet publish -c Release -o publish`
-2. Create a new IIS Application Pool (.NET CLR version: No Managed Code)
-3. Create a new IIS Website pointing to the publish folder
-4. Configure application pool identity and permissions
+3. **Update database connection string**
+   
+   Edit `BulkyWeb/appsettings.json` and update the connection string:
+   ```json
+   {
+     "ConnectionStrings": {
+       "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=BookHubDB;Trusted_Connection=True;MultipleActiveResultSets=true"
+     }
+   }
+   ```
 
-## Performance Optimization
+4. **Configure Stripe (Optional)**
+   
+   For payment functionality, add your Stripe keys to `appsettings.json`:
+   ```json
+   {
+     "stripe": {
+       "PublishableKey": "your_publishable_key_here",
+       "secretKey": "your_secret_key_here"
+     }
+   }
+   ```
 
-- Use SQL Server query optimization
-- Implement caching for frequently accessed data
-- Enable gzip compression in IIS/Kestrel
-- Optimize image sizes and use CDN for static assets
-- Use Entity Framework Core async/await patterns
+5. **Configure Facebook Authentication (Optional)**
+   
+   Update Facebook app credentials in `Program.cs` or use user secrets:
+   ```csharp
+   builder.Services.AddAuthentication().AddFacebook(options =>
+   {
+       options.AppId = "your_facebook_app_id";
+       options.AppSecret = "your_facebook_app_secret";
+   });
+   ```
 
-## License
+6. **Apply database migrations**
+   ```bash
+   dotnet ef database update --project BulkyWeb
+   ```
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+7. **Run the application**
+   ```bash
+   dotnet run --project BulkyWeb
+   ```
 
-## Support
+8. **Access the application**
+   
+   Open your browser and navigate to `https://localhost:5001` or `http://localhost:5000`
 
-For issues and questions:
-- GitHub Issues: [Create an issue](https://github.com/mahmoudalsharkawy572/BulkyBookWeb/issues)
-- Email: contact@example.com
-- Documentation: [Stripe API Docs](https://stripe.com/docs)
+### 🔑 Default Admin Account
 
-## Acknowledgments
+The application will automatically create a default admin account on first run:
+- **Email**: admin@bulky.com
+- **Password**: Admin@123
+- **Role**: Administrator
 
-- Built with [ASP.NET Core](https://dotnet.microsoft.com/apps/aspnet)
-- Payment processing by [Stripe](https://stripe.com)
-- UI framework [Bootstrap](https://getbootstrap.com)
-- Authentication framework [ASP.NET Identity](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/identity)
+## 📝 Usage
 
-## Project Links
+### For Customers
+1. **Browse Books**: Visit the home page to see all available books
+2. **Register Account**: Create a new account or login with existing credentials
+3. **Add to Cart**: Click on book details and add to your shopping cart
+4. **Checkout**: Proceed to checkout and complete payment via Stripe
+5. **Order History**: View your past orders in your account
 
-- **Repository**: https://github.com/mahmoudalsharkawy572/BulkyBookWeb
-- **Author**: [Mahmoud Alsharkawy](https://github.com/mahmoudalsharkawy572)
-- **.NET Documentation**: https://docs.microsoft.com/en-us/dotnet
-- **ASP.NET Core Documentation**: https://docs.microsoft.com/en-us/aspnet/core
+### For Administrators
+1. **Login**: Use admin credentials to access the admin panel
+2. **Manage Products**: Add new books, edit existing ones, or remove discontinued items
+3. **Manage Categories**: Organize books into logical categories
+4. **User Management**: View and manage customer accounts
+5. **Order Processing**: Monitor and process customer orders
+
+## 🔧 Configuration
+
+### Database Configuration
+- The application uses Entity Framework Core with SQL Server
+- Connection strings are configured in `appsettings.json`
+- Database initialization and seeding happen automatically on startup
+
+### Authentication Configuration
+- ASP.NET Core Identity is configured for user management
+- Password requirements and lockout policies can be adjusted in `Program.cs`
+- Email confirmation is enabled by default
+
+### Payment Configuration
+- Stripe integration requires valid API keys
+- Test keys are included for development purposes
+- Production deployment requires live Stripe keys
+
+## 🏗️ Architecture
+
+The application follows a clean, layered architecture:
+
+- **Presentation Layer** (`BulkyWeb`): MVC controllers, views, and web configuration
+- **Business Logic Layer** (`Bulky.Models`): Domain models and business rules
+- **Data Access Layer** (`Bulky.DataAccess`): Repository pattern, Unit of Work, and Entity Framework
+- **Utility Layer** (`Bulky.Utility`): Shared utilities, constants, and helper classes
+
+### Design Patterns Used
+- **Repository Pattern**: For data access abstraction
+- **Unit of Work Pattern**: For transaction management
+- **Dependency Injection**: For loose coupling and testability
+- **Model-View-Controller**: For separation of concerns
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.
+
+## 👨‍💻 Developer
+
+**Mahmoud Abdelrahman**
+- GitHub: [@MahmoudAbdelrahman2002](https://github.com/MahmoudAbdelrahman2002)
+
+## 🙏 Acknowledgments
+
+- Built with ❤️ using ASP.NET Core
+- UI components powered by Bootstrap
+- Payment processing by Stripe
+- Icons provided by Bootstrap Icons
+
+## 📞 Support
+
+If you encounter any issues or have questions, please:
+1. Check the existing [issues](https://github.com/MahmoudAbdelrahman2002/BookHub-MVC/issues)
+2. Create a new issue if your problem isn't already reported
+3. Provide detailed information about the problem and your environment
 
 ---
 
-**Last Updated**: 2024
-**Version**: 1.0.0
-**Status**: Active Development
+**Happy coding! 🚀**
